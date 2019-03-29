@@ -85,11 +85,16 @@ public class PlayerHealth : MonoBehaviour {
 		}
 	}
 
-	void Death() {
+	private void Death() {
 		isDead = true;
 		//anim.SetTrigger("Die"); //death animation
 
-		playerMovement.enabled = false; //Disable movement
+		playerMovement.enabled = false; //Disable movement\
+
+        //A set timer before game over screen
+
+
+        //Game over/try again screen/window OR auto respawn
 	}
 
 

@@ -13,17 +13,12 @@ public class PlayerMovement : MonoBehaviour {
 	public int wallJumpsLeft = 2;
 	public float wallJumpCD = 0.25f;
 	public float wallJumpTimer;
-	//public float hookPosXOffset;
-	//public float hookPosYOffset;
 
 	public bool grounded;           //Checks for contact with ground
 	public bool doubleJump = true;  //Enable or Disable double jump
 	public bool onWall;             //Checks for contact with a wall
 	public bool movement = true;    // Used to enable or Disable movement
-	//public bool hitWall;          // Checks if hook is on Wall
 	private bool buttonTimer = false;
-
-	//public GameObject hook;
 
 	private Rigidbody2D rb2d;
 	private Animator anim;
@@ -118,29 +113,6 @@ public class PlayerMovement : MonoBehaviour {
 				}
 			}
 		}
-		/*
-		//Hook
-		if (Input.GetKeyDown (KeyCode.LeftShift) && transform.localScale.x == 1) { // Default Case: Fire Right
-			Instantiate(hook, new Vector3 (transform.position.x + hookPosXOffset, transform.position.y + hookPosYOffset, transform.position.z), transform.rotation);
-		}
-
-		if (Input.GetKeyDown (KeyCode.LeftShift) && Input.GetKeyDown (KeyCode.UpArrow)) { // Fires Up
-			Instantiate(hook, new Vector3 (transform.position.x + hookPosXOffset, transform.position.y + hookPosYOffset, transform.position.z), new Quaternion(0, 0, 90, 0));
-		}
-
-		if (Input.GetKeyDown (KeyCode.LeftShift) && transform.localScale.x == -1) { // Fires Left
-			Instantiate(hook, new Vector3 (transform.position.x - hookPosXOffset, transform.position.y + hookPosYOffset, transform.position.z), new Quaternion(0, 0, 180, 0));
-		}
-
-		if (Input.GetKeyDown (KeyCode.LeftShift) && Input.GetKeyDown(KeyCode.DownArrow)) { // Fires Down
-			Instantiate(hook, new Vector3 (transform.position.x + hookPosXOffset, transform.position.y + hookPosYOffset, transform.position.z), new Quaternion (0, 0, 270, 0));
-		}
-
-		if (Input.GetKeyUp (KeyCode.LeftShift) && hitWall) { // Destroys hook object
-
-
-		}
-		*/
 	}
 
 

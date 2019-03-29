@@ -902,15 +902,22 @@ PrefabInstance:
       propertyPath: m_RootOrder
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 4577655482323180, guid: 2f17d5ba6c18d404b851a514b511187a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4577655482323180, guid: 2f17d5ba6c18d404b851a514b511187a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4577655482323180, guid: 2f17d5ba6c18d404b851a514b511187a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 114206833321237536, guid: 2f17d5ba6c18d404b851a514b511187a,
         type: 3}
       propertyPath: player
       value: 
       objectReference: {fileID: 1792382197}
-    - target: {fileID: 114206833321237536, guid: 2f17d5ba6c18d404b851a514b511187a,
-        type: 3}
-      propertyPath: rounds
-      value: -1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2f17d5ba6c18d404b851a514b511187a, type: 3}

@@ -919,5 +919,20 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: 1792382197}
+    - target: {fileID: 114206833321237536, guid: 2f17d5ba6c18d404b851a514b511187a,
+        type: 3}
+      propertyPath: rounds
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 50760939227359344, guid: 2f17d5ba6c18d404b851a514b511187a,
+        type: 3}
+      propertyPath: m_Constraints
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 50760939227359344, guid: 2f17d5ba6c18d404b851a514b511187a,
+        type: 3}
+      propertyPath: m_BodyType
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2f17d5ba6c18d404b851a514b511187a, type: 3}

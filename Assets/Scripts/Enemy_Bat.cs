@@ -62,12 +62,12 @@ public class Enemy_Bat : Enemy {
 			}
 		}
 
-		else if (rounds == 0) //Shoots indefinitely
+		else if (rounds == -1) //Shoots indefinitely
 			if(shotDelay >= bulletCooldown) {
 				Fire();
 				shotDelay = 0.0f;
 			}
-        //If rounds < 0, enemy doesn't shoot
+        //If rounds == 0, enemy doesn't shoot
 
         //Debug - Laser indicating where the bullet's being shot
         Vector3 playerPos = new Vector3(player.transform.position.x, player.transform.position.y + 1, player.transform.position.z);

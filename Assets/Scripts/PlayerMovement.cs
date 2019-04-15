@@ -113,6 +113,31 @@ public class PlayerMovement : MonoBehaviour {
 				}
 			}
 		}
+
+        //Aim when grounded
+        if (Input.GetKeyDown(KeyCode.A) && grounded)
+        {
+            rb2d.velocity = new Vector3(0, 0, 0);
+            movement = false;
+            if (Input.GetKeyDown(KeyCode.UpArrow))
+            {
+                if(Input.GetKeyDown(KeyCode.LeftArrow)) // NW
+                {
+                    Debug.DrawLine(transform.position, new Vector3(transform.position.x - 100, transform.position.y + 100, transform.position.z));  
+                }
+                else if(Input.GetKeyDown(KeyCode.RightArrow)) // NE
+                {
+                    Debug.DrawLine(transform.position, new Vector3(transform.position.x + 100, transform.position.y + 100, transform.position.z));
+                }
+                else //N
+                    Debug.DrawLine(transform.position, new Vector3(transform.position.x, transform.position.y + 100, transform.position.z));
+            }
+        }
+
+        if(Input.GetKeyUp(KeyCode.A))
+        {
+            movement = true;
+        }
 	}
 
 

@@ -55,7 +55,7 @@ public class PlayerHealth : MonoBehaviour {
 
 
 		if (!damageable) {
-			if (iframeCD >= 0.0f) {	//Activates after damageLagCD reaches 0
+			if (iframeCD > 0.0f) {	//Activates after damageLagCD reaches 0
 				iframeCD -= Time.deltaTime;
 			}
 

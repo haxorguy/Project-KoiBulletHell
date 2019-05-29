@@ -14,11 +14,15 @@ public class PlayerMovement : MonoBehaviour {
 	public float wallJumpCD = 0.25f;
 	public float wallJumpTimer;
 
-	public bool grounded;           //Checks for contact with ground
+    public bool grounded;           //Checks for contact with ground
 	public bool doubleJump = true;  //Enable or Disable double jump
 	public bool onWall;             //Checks for contact with a wall
 	public bool movement = true;    // Used to enable or Disable movement
 	private bool buttonTimer = false;
+
+    public float formChangeTimer = 1.0f;
+    public bool swordForm = true;     //Used to change forms [true = sword, false = bow]
+    private bool formChangeReady = true; //Used as a timer
 
 	private Rigidbody2D rb2d;
 	private Animator anim;
@@ -70,7 +74,7 @@ public class PlayerMovement : MonoBehaviour {
 		}
 
 		//Disables movement while wall jumping for a brief time
-		if(wallJumpTimer >= 0 && buttonTimer)
+		if(wallJumpTimer > 0 && buttonTimer)
 			wallJumpTimer -= Time.deltaTime;
 
 		if (wallJumpTimer <= 0) {
@@ -117,8 +121,6 @@ public class PlayerMovement : MonoBehaviour {
         //Aim when grounded
         if (Input.GetKeyDown(KeyCode.A) && grounded)
         {
-            rb2d.velocity = new Vector3(0, 0, 0);
-            movement = false;
             if (Input.GetKeyDown(KeyCode.UpArrow))
             {
                 if(Input.GetKeyDown(KeyCode.LeftArrow)) // NW
@@ -136,9 +138,37 @@ public class PlayerMovement : MonoBehaviour {
 
         if(Input.GetKeyUp(KeyCode.A))
         {
-            movement = true;
         }
-	}
+
+
+        //Change Forms
+        if(formChangeTimer > 0.0f)
+            formChangeTimer -= Time.deltaTime;
+        if(formChangeTimer <= 0.0f)
+            formChangeReady = true;
+
+        if(Input.GetKeyDown(KeyCode.C) && grounded && swordForm && formChangeReady)    //In sword form
+        {
+            swordForm = false;
+            formChangeReady = false;
+            //insert animations
+            //insert sounds
+
+            formChangeTimer = 1.0f;  
+        }
+
+        if(Input.GetKeyDown(KeyCode.C) && grounded && !swordForm && formChangeReady)   //In bow form
+        {
+            swordForm = true;
+            formChangeReady = false;
+            //animations
+            //sounds
+
+            formChangeTimer = 1.0f;
+        }
+
+
+	} // end Update
 
 
 
@@ -166,6 +196,8 @@ public class PlayerMovement : MonoBehaviour {
 
 		}
 			
-	}
-}
+	} // end FixedUpdate
+
+
+}// end PlayerMovement
 

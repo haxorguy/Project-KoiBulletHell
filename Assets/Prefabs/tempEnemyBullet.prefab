@@ -130,4 +130,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   aimAtPlayer: 1
-  enemy: {fileID: 0}
+  enemy: {fileID: 1411997207001564, guid: 2f17d5ba6c18d404b851a514b511187a, type: 3}

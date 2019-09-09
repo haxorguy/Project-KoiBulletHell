@@ -25,6 +25,7 @@ public class Enemy_Bat : Enemy {
 	void Update () {
 
         // ---Movement---
+        Random.seed = (int)System.DateTime.Now.Ticks;
         float movementFreq = Random.Range(2.0f, 5.0f);
         Vector3 easeVelocity = rb2d.velocity;
         easeVelocity.y = rb2d.velocity.y;

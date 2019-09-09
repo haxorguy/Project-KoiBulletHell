@@ -20,10 +20,6 @@ public class PlayerMovement : MonoBehaviour {
 	public bool movement = true;    // Used to enable or Disable movement
 	private bool buttonTimer = false;
 
-    public float formChangeTimer = 1.0f;
-    public bool swordForm = true;     //Used to change forms [true = sword, false = bow]
-    private bool formChangeReady = true; //Used as a timer
-
 	private Rigidbody2D rb2d;
 	private Animator anim;
 
@@ -97,8 +93,11 @@ public class PlayerMovement : MonoBehaviour {
         //Wall Slide
         if (onWall && !grounded && rb2d.velocity.y <= 0.0f) {
 			rb2d.velocity = new Vector2 (0, -3.5f);
+            rb2d.angularVelocity = 0;
 
 			//Wall Jump
+            /*BUG - Sprite won't flip likely due to lingering momentum*/
+            //Jump off wall
 			if (Input.GetKeyDown (KeyCode.Z) && ((!Input.GetKey(KeyCode.UpArrow) && (!Input.GetKey(KeyCode.RightArrow)) && (!Input.GetKey(KeyCode.LeftArrow))))) {
                 if (wallJumpsLeft > 0)
                 {
@@ -110,6 +109,7 @@ public class PlayerMovement : MonoBehaviour {
                 }
 			}
 
+            //Jump up wall
 			else if(Input.GetKeyDown (KeyCode.Z) && ((!Input.GetKeyDown(KeyCode.UpArrow) || (!Input.GetKeyDown(KeyCode.RightArrow)) || (!Input.GetKeyDown(KeyCode.LeftArrow))))) {
 				if (wallJumpsLeft > 0) {
 					rb2d.velocity = new Vector2 (transform.localScale.x, 14);
@@ -118,54 +118,7 @@ public class PlayerMovement : MonoBehaviour {
 			}
 		}
 
-        //Aim when grounded
-        if (Input.GetKeyDown(KeyCode.A) && grounded)
-        {
-            if (Input.GetKeyDown(KeyCode.UpArrow))
-            {
-                if(Input.GetKeyDown(KeyCode.LeftArrow)) // NW
-                {
-                    Debug.DrawLine(transform.position, new Vector3(transform.position.x - 100, transform.position.y + 100, transform.position.z));  
-                }
-                else if(Input.GetKeyDown(KeyCode.RightArrow)) // NE
-                {
-                    Debug.DrawLine(transform.position, new Vector3(transform.position.x + 100, transform.position.y + 100, transform.position.z));
-                }
-                else //N
-                    Debug.DrawLine(transform.position, new Vector3(transform.position.x, transform.position.y + 100, transform.position.z));
-            }
-        }
 
-        if(Input.GetKeyUp(KeyCode.A))
-        {
-        }
-
-
-        //Change Forms
-        if(formChangeTimer > 0.0f)
-            formChangeTimer -= Time.deltaTime;
-        if(formChangeTimer <= 0.0f)
-            formChangeReady = true;
-
-        if(Input.GetKeyDown(KeyCode.C) && grounded && swordForm && formChangeReady)    //In sword form
-        {
-            swordForm = false;
-            formChangeReady = false;
-            //insert animations
-            //insert sounds
-
-            formChangeTimer = 1.0f;  
-        }
-
-        if(Input.GetKeyDown(KeyCode.C) && grounded && !swordForm && formChangeReady)   //In bow form
-        {
-            swordForm = true;
-            formChangeReady = false;
-            //animations
-            //sounds
-
-            formChangeTimer = 1.0f;
-        }
 
 
 	} // end Update

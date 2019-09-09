@@ -14,7 +14,6 @@ GameObject:
   - component: {fileID: 50760939227359344}
   - component: {fileID: 61775179981898366}
   - component: {fileID: 4304871101901146554}
-  - component: {fileID: 114206833321237536}
   m_Layer: 0
   m_Name: tempEnemy
   m_TagString: Enemy
@@ -154,25 +153,3 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
---- !u!114 &114206833321237536
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1411997207001564}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5cdddc4bacddba24e8ac8b0a14700455, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  attackCooldown: 1.5
-  attackDamage: 30
-  bulletCooldown: 0.5
-  bulletDamage: 20
-  bulletSpeed: 10
-  rounds: 0
-  player: {fileID: 0}
-  bullet: {fileID: 1437712628862354, guid: 9149ea5e61cd2e245a30cb5911efc961, type: 3}
-  speed: 200
-  maxSpeed: 2
